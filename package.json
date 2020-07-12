@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "ts-node ./script.ts",
+    "db-up": "prisma migrate up --experimental --create-db",
     "db-apply": "prisma migrate save --experimental && prisma migrate up --experimental && prisma generate",
     "prisma-studio": "prisma studio --experimental"
   },
