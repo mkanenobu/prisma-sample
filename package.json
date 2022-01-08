@@ -1,21 +1,29 @@
 {
-  "name": "script",
+  "name": "prisma-sample",
   "license": "MIT",
-  "devDependencies": {
-    "@prisma/cli": "2.0.0",
-    "ts-node": "8.7.0",
-    "typescript": "3.8.3"
-  },
   "scripts": {
-    "dev": "ts-node ./script.ts",
-    "db-up": "prisma migrate up --experimental --create-db",
-    "db-apply": "prisma migrate save --experimental && prisma migrate up --experimental && prisma generate",
-    "prisma-studio": "prisma studio --experimental"
+    "dev:server": "ts-node-dev --deps=0 ./src/index.ts",
+    "dev:prisma": "prisma generate --watch",
+    "dev": "npm-run-all --parallel dev:*",
+    "db:dev": "prisma migrate dev",
+    "db:apply": "prisma db push && prisma generate",
+    "crate-migration": "yarn prisma migrate dev",
+    "format:prisma-schema": "prisma format",
+    "format": "npm-run format:*",
+    "prisma-studio": "prisma studio"
   },
   "dependencies": {
-    "@prisma/client": "2.0.0"
+    "@prisma/client": "3.7.0",
+    "dayjs": "^1.10.7",
+    "express": "^4.17.2"
   },
-  "engines": {
-    "node": ">=10.0.0"
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.8",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "prisma": "3.7.0",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.4"
   }
 }

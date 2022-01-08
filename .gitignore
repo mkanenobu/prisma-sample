@@ -118,4 +118,6 @@ dist
 .pnp.*
 
 # SQLite
+db/data/
 *.db
+*.db-journal
